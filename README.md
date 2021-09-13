@@ -1,24 +1,13 @@
-# progressor-compo-api
+# Vue 3 composition API
 
-## Project setup
-```
-npm install
-```
+_September 2021_
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+> 🔨 From Udemy [Vue 3 par la pratique - Samir Medjdoub / Code Concept](https://www.udemy.com/course/creez-des-animations-avec-lhtml-canvas).
 
-### Compiles and minifies for production
-```
-npm run build
-```
+---
 
-### Lints and fixes files
-```
-npm run lint
-```
+<h1 align="center">
+    <img src="_readme-img/logo.png">
+</h1>
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Useful links
