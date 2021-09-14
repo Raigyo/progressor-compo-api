@@ -9,6 +9,7 @@
 // @ is an alias to /src
 import HelloWorld from "@/components/HelloWorld.vue";
 import Form from "@/components/Form.vue";
+import tasksService from "@/services/tasks.js";
 
 export default {
   name: "Home",
@@ -19,6 +20,7 @@ export default {
   setup() {
     const addTask = (payload) => {
       console.log("Home.vue | addTask()", payload);
+      tasksService.create(payload);
     };
     return { addTask };
   },

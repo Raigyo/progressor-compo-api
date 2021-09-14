@@ -45,7 +45,7 @@ export default {
       const task = {
         id: Date.now(),
         name: name.value,
-        desscription: description.value,
+        description: description.value,
         temporality: temporality.value,
       };
       console.log(task);
