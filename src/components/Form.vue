@@ -2,7 +2,12 @@
   <h3>Créer une tâche</h3>
   <!-- "@" = "v-on:" -->
   <form @submit.prevent="createTask">
-    <input type="text" placeholder="Nom de la tâche" v-model="name" />
+    <input
+      type="text"
+      placeholder="Nom de la tâche"
+      v-model="name"
+      ref="txtName"
+    />
     <br />
     <textarea
       cols="30"
@@ -27,7 +32,7 @@
 </template>
 
 <script>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 export default {
   name: "Form",
   emits: ["createtask"],
@@ -41,6 +46,7 @@ export default {
       { id: 3, name: "long terme", value: "long-term" },
     ]);
     const temporality = ref("");
+    let txtName = ref(null);
     const createTask = () => {
       const task = {
         id: Date.now(),
@@ -58,8 +64,20 @@ export default {
       name.value = "";
       description.value = "";
       temporality.value = null;
+      txtName.value.focus();
     };
-    return { name, description, temporalityTypes, temporality, createTask };
+    onMounted(() => {
+      // console.log("onMounted / txtName", txtName.value);
+      txtName.value.focus();
+    });
+    return {
+      name,
+      description,
+      temporalityTypes,
+      temporality,
+      createTask,
+      txtName,
+    };
   },
 };
 </script>
