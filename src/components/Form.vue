@@ -27,12 +27,12 @@
       </option>
     </select>
     <br />
-    <button>Créer</button>
+    <button :disabled="!isFormValid">Créer</button>
   </form>
 </template>
 
 <script>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, computed } from "vue";
 export default {
   name: "Form",
   emits: ["createtask"],
@@ -70,6 +70,19 @@ export default {
       // console.log("onMounted / txtName", txtName.value);
       txtName.value.focus();
     });
+
+    const isFormValid = computed(() => {
+      if (
+        name.value !== "" &&
+        description.value !== "" &&
+        temporality.value !== ""
+      ) {
+        return true;
+      } else {
+        return false;
+      }
+    });
+
     return {
       name,
       description,
@@ -77,6 +90,7 @@ export default {
       temporality,
       createTask,
       txtName,
+      isFormValid,
     };
   },
 };

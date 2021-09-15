@@ -18,3 +18,4 @@ _September 2021_
 - [Communicating between Vue components: smart vs dumb](https://buddy.works/tutorials/communicating-between-vue-components)
 - [Explaining the Vue Context Argument – A Composition API Tutorial](https://learnvue.co/2021/06/explaining-the-vue-context-argument-a-composition-api-tutorial/)
 - [Computed Properties and Watchers](https://vuejs.org/v2/guide/computed.html)
+- [How To Deploy Your Vue App to Github Pages](https://learnvue.co/2020/09/how-to-deploy-your-vue-app-to-github-pages/)
