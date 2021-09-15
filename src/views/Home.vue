@@ -19,7 +19,7 @@ export default {
   },
   setup() {
     const addTask = (payload) => {
-      console.log("Home.vue | addTask()", payload);
+      // console.log("Home.vue | addTask()", payload);
       tasksService.create(payload);
     };
     return { addTask };

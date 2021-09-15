@@ -17,3 +17,4 @@ _September 2021_
 - [Introducing the Vue Composition API with a practical example](https://www.zweitag.de/blog/vue-composition-api-introduction/)
 - [Communicating between Vue components: smart vs dumb](https://buddy.works/tutorials/communicating-between-vue-components)
 - [Explaining the Vue Context Argument – A Composition API Tutorial](https://learnvue.co/2021/06/explaining-the-vue-context-argument-a-composition-api-tutorial/)
+- [Computed Properties and Watchers](https://vuejs.org/v2/guide/computed.html)

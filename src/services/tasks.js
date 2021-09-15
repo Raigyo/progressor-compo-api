@@ -2,7 +2,7 @@ let tasks = [];
 
 const create = (task) => {
   tasks = [task, ...tasks];
-  console.log("tasks", tasks);
+  // console.log("tasks", tasks);
 };
 
 const read = () => {

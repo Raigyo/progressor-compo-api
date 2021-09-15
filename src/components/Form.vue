@@ -54,7 +54,7 @@ export default {
         description: description.value,
         temporality: temporality.value,
       };
-      console.log(task);
+      // console.log(task);
       // custom events
       context.emit("createtask", task);
       resetForm();
