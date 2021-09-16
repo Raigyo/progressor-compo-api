@@ -42,6 +42,9 @@
       <h4>{{ task.name }}</h4>
       <p>{{ task.description }}</p>
       <p>Échéance: {{ convertTemporalityCase(task.temporality) }}</p>
+      <div>
+        <button class="small" @click="() => deleteTask(task.id)">Delete</button>
+      </div>
     </div>
   </div>
 </template>
@@ -78,6 +81,13 @@ export default {
         // console.log(("selectedTemporality", selectedTemporality.value));
       }
     };
+
+    const deleteTask = (id) => {
+      tasksService.deleteTask(id);
+      tasks.value = tasksService.read();
+      filter();
+    };
+
     filter();
     // watch(selectedTemporality, (newValue, oldValue) => {
     //   console.log("newValue", newValue, "| oldValue", oldValue);
@@ -98,6 +108,7 @@ export default {
       letters,
       filter,
       selectedTemporality,
+      deleteTask,
     }; // to use fct in templates
   },
 };
@@ -106,6 +117,7 @@ export default {
 <style scoped>
 .task {
   margin: 10px 15px;
+  padding-bottom: 5px;
   border: 3px solid #42b983;
   border-radius: 5px;
 }
@@ -113,5 +125,9 @@ export default {
   display: flex;
   justify-content: center;
   margin-top: 10px;
+}
+
+.small {
+  width: 60px;
 }
 </style>
