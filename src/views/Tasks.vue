@@ -1,4 +1,10 @@
 <template>
+  <Modal
+    v-if="isInEditMode"
+    :task="taskToEdit"
+    @updatetask="updateTask($event)"
+    @cancel="cancelEdit"
+  />
   <!-- v-model = 2 ways binding -->
   <input type="text" placeholder="Filtrer" v-model="letters" @keyup="filter" />
   <div class="radio-filters">
@@ -43,7 +49,10 @@
       <p>{{ task.description }}</p>
       <p>Échéance: {{ convertTemporalityCase(task.temporality) }}</p>
       <div>
-        <button class="small" @click="() => deleteTask(task.id)">Delete</button>
+        <button class="small" @click="() => deleteTask(task.id)">
+          Effacer
+        </button>
+        <button class="small" @click="() => toggleToEdit(task)">Editer</button>
       </div>
     </div>
   </div>
@@ -52,18 +61,25 @@
 <script>
 import { ref, watch } from "vue";
 import tasksService from "@/services/tasks.js";
+import Modal from "../components/Modal.vue";
 export default {
   name: "Tasks",
+  components: {
+    Modal,
+  },
   setup() {
     const tasks = ref([]);
     const letters = ref("");
     const selectedTemporality = ref("");
-    tasks.value = tasksService.read();
     let tasksFiltered = ref([]);
+    let isInEditMode = ref(false);
+    let taskToEdit = ref(null);
+    tasks.value = tasksService.read();
 
     const convertTemporalityCase = (temporality) => {
       return tasksService.convertCase(temporality);
     };
+
     const filter = () => {
       // console.log(letters.value);
       if (letters.value.length === 0) {
@@ -80,6 +96,21 @@ export default {
         // console.log(("tasksFiltered", tasksFiltered.value));
         // console.log(("selectedTemporality", selectedTemporality.value));
       }
+    };
+
+    const toggleToEdit = (task) => {
+      // console.log("toggleToEdit", task);
+      taskToEdit.value = task;
+      isInEditMode.value = true;
+    };
+
+    const updateTask = (task) => {
+      console.log("updateTask", task);
+    };
+
+    const cancelEdit = () => {
+      isInEditMode.value = false;
+      taskToEdit.value = null;
     };
 
     const deleteTask = (id) => {
@@ -103,12 +134,17 @@ export default {
     });
     return {
       tasks,
+      letters,
+      selectedTemporality,
       tasksFiltered,
       convertTemporalityCase,
-      letters,
       filter,
-      selectedTemporality,
+      isInEditMode,
       deleteTask,
+      taskToEdit,
+      toggleToEdit,
+      updateTask,
+      cancelEdit,
     }; // to use fct in templates
   },
 };
