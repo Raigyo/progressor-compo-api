@@ -28,8 +28,10 @@
               {{ tempo.name }}
             </option></select
           ><br />
-          <button :disabled="!isFormValid">Sauvegarder</button>
-          <button @click="cancel">Annuler</button>
+          <button class="small button-save" :disabled="!isFormValid">
+            Sauvegarder
+          </button>
+          <button class="small button-cancel" @click="cancel">Annuler</button>
         </form>
       </div>
     </div>
@@ -107,5 +109,24 @@ export default {
   background-color: white;
   padding-bottom: 22px;
   margin: 30px;
+}
+
+.small {
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 11px;
+  margin: 10px 50px;
+}
+
+.button-save {
+  background-color: #dd6b1f;
+}
+
+.button-cancel {
+  background-color: #f0ce0f;
 }
 </style>

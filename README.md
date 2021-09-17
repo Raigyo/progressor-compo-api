@@ -13,7 +13,7 @@ Demo on [Github page]().
 </h1>
 
 <h2 align="center">
-    <img src="_readme-img/capture-01.png">
+    <img src="_readme-img/capture-02.png">
 </h2>
 
 ## Composition API vs Options API
