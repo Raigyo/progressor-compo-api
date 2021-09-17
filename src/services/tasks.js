@@ -10,6 +10,8 @@ const retrieveTasks = () => {
   return JSON.parse(fromLocalStorage);
 };
 
+// CRUD
+
 const create = (task) => {
   // if (tasks === null) {
   //   tasks = [];
@@ -22,6 +24,16 @@ const create = (task) => {
 const read = () => {
   tasks = retrieveTasks();
   return tasks;
+};
+
+const updateTask = (task) => {
+  const index = tasks.findIndex((t) => t.id === task.id);
+  console.log("index", index);
+  if (index === -1) {
+    return;
+  }
+  tasks[index] = task;
+  save();
 };
 
 const deleteTask = (id) => {
@@ -51,8 +63,7 @@ const convertCase = (temporalityKebabCase) => {
 export default {
   create,
   read,
-  convertCase,
+  updateTask,
   deleteTask,
-  // save,
-  // retrieveTasks,
+  convertCase,
 };

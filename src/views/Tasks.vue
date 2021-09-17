@@ -49,10 +49,12 @@
       <p>{{ task.description }}</p>
       <p>Échéance: {{ convertTemporalityCase(task.temporality) }}</p>
       <div>
-        <button class="small" @click="() => deleteTask(task.id)">
+        <button class="small button-edit" @click="() => toggleToEdit(task)">
+          Editer
+        </button>
+        <button class="small button-delete" @click="() => deleteTask(task.id)">
           Effacer
         </button>
-        <button class="small" @click="() => toggleToEdit(task)">Editer</button>
       </div>
     </div>
   </div>
@@ -104,13 +106,17 @@ export default {
       isInEditMode.value = true;
     };
 
-    const updateTask = (task) => {
-      console.log("updateTask", task);
-    };
-
     const cancelEdit = () => {
       isInEditMode.value = false;
       taskToEdit.value = null;
+    };
+
+    const updateTask = (task) => {
+      console.log("updateTask", task);
+      tasksService.updateTask(task);
+      tasks.value = tasksService.read();
+      filter();
+      cancelEdit();
     };
 
     const deleteTask = (id) => {
@@ -164,6 +170,21 @@ export default {
 }
 
 .small {
-  width: 60px;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 11px;
+  margin: 10px 50px;
+}
+
+.button-edit {
+  background-color: #4caf50;
+}
+
+.button-delete {
+  background-color: #f04f0f;
 }
 </style>
