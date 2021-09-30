@@ -6,7 +6,7 @@ _September 2021_
 
 ---
 
-Demo on [Github page](https://raigyo.github.io/progressor-compo-api/).
+Demo on [Netlify](https://festive-goldstine-1fbdc1.netlify.app/).
 
 <h1 align="center">
     <img src="_readme-img/logo.png">

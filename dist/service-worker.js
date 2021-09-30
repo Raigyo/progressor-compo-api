@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/progressor-compo-api/precache-manifest.d37c5989c70cfcdaedb032250037efc9.js"
+  "/precache-manifest.108caac4f4394aa189a804b9cbb51255.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "progressor-compo-api"});
